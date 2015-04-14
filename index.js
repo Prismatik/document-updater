@@ -27,24 +27,28 @@ var documentUpdater = {
 
           safeParse(schema, function(err, parsedSchema) {
             if (err) return callback(err);
+
             //save the json schema (not parsed) against the version number
             self.schemas[parsedSchema.version] = schema;
 
-            var version = parseInt(parsedSchema.version);
-            if (version > self.currentVersion) self.currentVersion = version;
-            callback();
+            var versionInt = parseInt(parsedSchema.version);
+            if (versionInt > self.currentVersion) self.currentVersion = parsedSchema.version;
+            return callback();
           });
-        }, function(err, result) {
-          console.log('result',result);
         });
-
+      }, function(err, result) {
+        console.log('schemas',self.schemas);
+        console.log('currentVersion',self.currentVersion);
+        console.log('current schema',self.schemas['2']);
+        cb();
       });
-    });
-  },
 
-  updateDocument: function() {
-  
+    });
   }
+
+  //updateDocument: function(do) {
+  
+  //}
 }
 
 module.exports = documentUpdater;
