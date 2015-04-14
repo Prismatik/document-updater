@@ -1,0 +1,18 @@
+{
+  "name": "document-updater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "./node_modules/.bin/mocha -R spec"
+  },
+  "author": "Simon Taylor <nizmox@gmail.com> (https://github.com/s-taylor)",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "safe-json-parse": "^4.0.0"
+  }
+}
